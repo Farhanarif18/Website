@@ -31,7 +31,7 @@ if(isset($_POST["registrasi"])) {
         <h1>Registrasi</h1>
         <ul>
             <li>
-                <label for="username">username : </label>
+                <label for="username">usernamee : </label>
                 <input type="text" name="username" id="username">
             </li>
             <li>
