@@ -12,7 +12,6 @@
         <form action="" method="post">
         nim : <input type="text" name="nim"> <br>
         nama : <input type="text" name="nama"> <br>
-        jurusan : <input type="text">
         <button type="submit" name="submit">kirim</button>
         </form>
     </div>

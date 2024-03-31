@@ -3,6 +3,7 @@
 //menghubungkan ke file functions
 require 'functions.php';
 
+
 $mahasiswa = query("SELECT * FROM mahasiswa");
 
 //tombol cari ditekan
