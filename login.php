@@ -15,7 +15,8 @@ if(isset($_POST['login'])){
         //cek pasword
 
         $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row['$password'])) {  
+        var_dump(password_verify($password, $row['password']));
+        if (password_verify($password, $row['password'])) {  
 
             header("Location: index.php");
             exit;
