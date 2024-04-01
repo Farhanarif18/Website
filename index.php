@@ -36,7 +36,6 @@ if(isset($_POST["search"])){
             <th>Nama</th>
             <th>Jurusan</th>
             <th>Alamat</th>
-            <th>pasword</th>
             <th>Aksi</th>
         </tr>
         <?php $i = 1?>
@@ -47,10 +46,9 @@ if(isset($_POST["search"])){
             <td><?php echo $row["nama"] ?> </td>
             <td><?php echo $row["jurusan"] ?> </td>
             <td><?php echo $row["alamat"] ?> </td>
-            <td><?php echo $row["pasword"] ?> </td>
             <td>
                 <a href="update.php?id= <?php echo $row["id"]; ?>">Update</a> |
-                <a href="delete.php?id=<?php echo $row["id"] ?>" onclick="return confirm('yakin ingin menghapus');">delete</a>
+                <a href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('yakin ingin menghapus');">delete</a>
             </td>
             <?php  } ;?>
         </tr>

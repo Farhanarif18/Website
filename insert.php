@@ -43,10 +43,6 @@ if( isset ($_POST["submit"])){
                 <input type="text" name="alamat" id="alamat" required>
             </li>
             <li>
-                <label for="pasword"> Pasword : </label>
-                <input type="text" name="pasword" id="pasword" required>
-            </li>
-            <li>
                 <button type="submit" name="submit"> Tambah</button>
             </li>
         </ul>

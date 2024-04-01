@@ -21,11 +21,10 @@ function insert($data){
         $nama = htmlspecialchars($data["nama"]);
         $jurusan = htmlspecialchars ($data["jurusan"]);
         $alamat = htmlspecialchars ($data["alamat"]);
-        $pasword = htmlspecialchars ($data["pasword"]);
 
         
     $query = "INSERT INTO mahasiswa VALUES 
-    ('','$nim','$nama','$jurusan','$alamat','$pasword')";
+    ('','$nim','$nama','$jurusan','$alamat')";
 
     mysqli_query($conn, $query);
 
@@ -40,21 +39,20 @@ function delete ($id){
 
 function update ($data){
         global $conn;
+
         //ambil data dari form
         $id = $data["id"];
         $nim =  htmlspecialchars($data["nim"]);
         $nama = htmlspecialchars($data["nama"]);
-        $jurusan = htmlspecialchars ($data["jurusan"]);
-        $alamat = htmlspecialchars ($data["alamat"]);
-        $pasword = htmlspecialchars ($data["pasword"]);
+        $jurusan = ($data["jurusan"]);
+        $alamat =($data["alamat"]);
 
         
     $query = "UPDATE mahasiswa SET 
             nim = '$nim',
             nama = '$nama',
             jurusan = '$jurusan',
-            alamat = '$alamat',
-            pasword = '$pasword'
+            alamat = '$alamat'
             WHERE id = $id
             ";
 
@@ -75,8 +73,8 @@ function registrasi($data){
     global $conn;
 
     $username = strtolower (stripcslashes($data['username']));
-    $pasword = mysqli_real_escape_string($conn, $data['pasword']);
-    $pasword2 = mysqli_real_escape_string($conn, $data['pasword2']);
+    $password = mysqli_real_escape_string($conn, $data['password']);
+    $password2 = mysqli_real_escape_string($conn, $data['password2']);
 
 
     //cek username sudah ada atau belum
@@ -94,18 +92,18 @@ function registrasi($data){
 
     //Cek konfirmasi password
 
-    if($pasword !== $pasword2){
+    if($password !== $password2){
         echo "<script>alert('Konfirmasi password tidak sama');</script>";
 
         return false;
     }
     //enkripsi password
 
-    $pasword = password_hash($pasword, PASSWORD_DEFAULT);
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
     //tambahkan ke database
 
-    mysqli_query($conn,"INSERT INTO  users VALUES('', '$username','$pasword')");
+    mysqli_query($conn,"INSERT INTO  users VALUES('', '$username','$password')");
 
     return mysqli_affected_rows($conn);
 

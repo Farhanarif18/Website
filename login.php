@@ -1,3 +1,35 @@
+<?php
+
+
+require 'functions.php';
+
+if(isset($_POST['login'])){
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username  =  '$username'" );
+
+    if(mysqli_num_rows($result) === 1) {
+        
+        //cek pasword
+
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row['$password'])) {  
+
+            header("Location: index.php");
+            exit;
+        }   
+
+
+    }
+
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +40,20 @@
 </head>
 <body>
     <div class="containner">
+        <h1> Halaman Login</h1>
         <!-- <div class="imgcenter"><img src="logoIG.png" alt="" width=50px></div> -->
         <form action="" method="post">
-        nim : <input type="text" name="nim"> <br>
-        nama : <input type="text" name="nama"> <br>
-        <button type="submit" name="submit">kirim</button>
+        <ul>
+            <li>
+            <label for="username">Username :</label>
+            <input type="text" name="username" id="username"> <br><br>
+        </li>
+        <li>
+            <label for="password" >Password :</label>
+            <input type="password" name="password" id="password"> <br><br>
+        </li>
+        <button type="submit" name="login">Login</button>
+        </ul>
         </form>
     </div>
 </body>

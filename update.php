@@ -7,7 +7,8 @@ $id = $_GET["id"];
 
 //query data mahasiswa berdasarkan id
 $mhs = query("SELECT * FROM mahasiswa WHERE id = $id")[0];
-// var_dump($mhs["nim"]);
+
+// var_dump($mhs);
 
 //cek apakah tombol submit sudah ditekan atau belum
 if( isset ($_POST["submit"])){
@@ -52,10 +53,6 @@ if( isset ($_POST["submit"])){
             <li>
                 <label for="alamat"> Alamat : </label>
                 <input type="text" name="alamat" id="alamat"required value="<?php echo $mhs["alamat"];?>">
-            </li>
-            <li>
-                <label for="pasword"> Pasword : </label>
-                <input type="text" name="pasword" id="pasword" rrequired value="<?php echo $mhs["pasword"];?>">
             </li>
             <li>
                 <button type="submit" name="submit"> Update </button>

@@ -17,10 +17,6 @@ if(isset($_POST["registrasi"])) {
 
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,13 +31,13 @@ if(isset($_POST["registrasi"])) {
                 <input type="text" name="username" id="username">
             </li>
             <li>
-                <label for="pasword">Pasword : </label>
-                <input type="password" name="pasword" id="pasword">
+                <label for="password">Password : </label>
+                <input type="password" name="password" id="password">
             </li>
             
             <li>
-                <label for="pasword2">konfirmasi Pasword : </label>
-                <input type="password" name="pasword2" id="pasword2">
+                <label for="password2">konfirmasi Password : </label>
+                <input type="password" name="password2" id="password2">
             </li>
             <li>
                 <button type="submit" name="registrasi">registrasi</button>
