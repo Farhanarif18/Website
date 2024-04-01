@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
         //cek pasword
 
         $row = mysqli_fetch_assoc($result);
-        var_dump(password_verify($password, $row['password']));
+        // var_dump(password_verify($password, $row['password']));
         if (password_verify($password, $row['password'])) {  
 
             header("Location: index.php");
@@ -24,6 +24,7 @@ if(isset($_POST['login'])){
 
 
     }
+    $error = true;
 
 
 }
@@ -40,8 +41,15 @@ if(isset($_POST['login'])){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="containner">
+    <!-- < class="containner"> -->
         <h1> Halaman Login</h1>
+        <?php if(isset($error)) {?>
+            <p style="color : red; font-style : italic;">Username atau Password salah</p>
+        
+
+        <?php }?>
+
+
         <!-- <div class="imgcenter"><img src="logoIG.png" alt="" width=50px></div> -->
         <form action="" method="post">
         <ul>
