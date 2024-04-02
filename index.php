@@ -1,5 +1,12 @@
 <?php 
 
+session_start();
+
+if(!isset($_SESSION["login"])){
+    header("Location:login.php");
+    exit;
+}
+
 //menghubungkan ke file functions
 require 'functions.php';
 
@@ -51,7 +58,9 @@ if(isset($_POST["search"])){
                 <a href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('yakin ingin menghapus');">delete</a>
             </td>
             <?php  } ;?>
-        </tr>
+        </tr> 
     </table>
+    
+    <a href="logout.php">logout</a>
 </body>
 </html>
